@@ -1,5 +1,5 @@
 const express = require('express');
-
+const http = require('http');
 const app = express();
 app.use(express.json());
 app.use(express.urlencoded({
@@ -15,6 +15,6 @@ app.post('/', (req,res) => {
     res.send('ok');
 });
 
-app.listen(3000, () => {
+http.createServer(app).listen(3000, () => {
     console.log('app is listening on port 3000');
 });
